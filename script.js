@@ -32,16 +32,17 @@ function agregar() {
   let anio = parseInt(document.getElementById('inputAnio').value);
   let precio = parseFloat(document.getElementById('inputPrecio').value);
   console.log(`marca: ${marca} modelo:${modelo} anio:${anio} precio${precio}`);
+  if (marca === '' || modelo === '' || isNaN(anio) || isNaN(precio)) {
+    window.alert('Verifique el ingreso de los datos');
+    return;
+  }
   autosAgencia.push({
     marca: marca,
     modelo: modelo,
     anio: anio,
     precio: precio,
   });
-  if (marca === '' || modelo === '' || isNaN(anio) || isNaN(precio)) {
-    window.alert('Verifique el ingreso de los datos');
-    return;
-  }
+
 
   mostrar();
 }
